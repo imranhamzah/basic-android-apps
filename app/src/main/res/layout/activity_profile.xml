@@ -1,0 +1,398 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.easytravelapp17.jodoh.ProfileActivity"
+
+    >
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar_profile"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary"
+        android:theme="@style/AppTheme.PopupOverlay" />
+
+    <com.miguelcatalan.materialsearchview.MaterialSearchView
+        android:id="@+id/search_view_everywhere_profile"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="#FFFFFF"
+        android:textColorHint="#FFFFFF"
+        app:searchBackIcon="@drawable/ic_action_navigation_arrow_back_inverted"
+        app:searchBackground="@color/colorPrimary"
+        app:searchCloseIcon="@drawable/ic_action_navigation_close_inverted"
+        app:searchSuggestionBackground="@color/colorPrimary"
+        app:searchSuggestionIcon="@drawable/ic_suggestion"></com.miguelcatalan.materialsearchview.MaterialSearchView>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@id/toolbar_profile">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:layout_marginBottom="-130dp"
+                android:background="#d4d4d4"
+                android:orientation="vertical"></LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                      android:id="@+id/profileImage"
+                      android:layout_width="165dp"
+                      android:layout_height="150dp"
+                      android:layout_alignParentTop="true"
+                      android:layout_centerHorizontal="true"
+                      android:layout_marginTop="34dp"
+                      android:layout_weight="0.04"
+                      android:foregroundGravity="center"
+                      app:srcCompat="@mipmap/ic_launcher_round" />
+
+                <android.support.v7.widget.CardView
+                    android:id="@+id/cv_image_container"
+                    android:layout_width="165dp"
+                    android:layout_height="165dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginTop="20dp"
+                    card_view:cardCornerRadius="6dp">
+
+                    <com.joooonho.SelectableRoundedImageView
+                        android:id="@+id/iv_user_pic"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:scaleType="fitXY"
+                        android:src="@mipmap/ic_launcher_round"
+                        app:sriv_border_color="#008fea"
+                        app:sriv_border_width="0dip"
+                        app:sriv_left_bottom_corner_radius="6dip"
+                        app:sriv_left_top_corner_radius="6dip"
+                        app:sriv_oval="false"
+                        app:sriv_right_bottom_corner_radius="6dip"
+                        app:sriv_right_top_corner_radius="6dip"
+                        android:onClick="updateImage"
+                        />
+                </android.support.v7.widget.CardView>
+
+                <TextView
+                    android:id="@+id/fullnameProfileTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/profileImage"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="8dp"
+                    android:text="Muhammad Hassan Husni"
+                    android:textSize="24sp" />
+
+                <TextView
+                    android:id="@+id/stateTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/genderTextView"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="10dp"
+                    android:text="Terengganu"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/genderTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/ageTextView"
+                    android:layout_centerHorizontal="true"
+                    android:text="Male"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/ageTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
+                    android:layout_weight="0.08"
+                    android:text="25 Years old"
+                    android:textSize="14sp" />
+
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="40dp"
+                    android:background="?attr/colorControlHighlight"
+                    android:elevation="1dp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="74dp"
+                    android:layout_weight="0.17"
+                    android:orientation="vertical"
+                    android:weightSum="1">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="74dp"
+                        android:layout_weight="0.28"
+                        android:orientation="horizontal">
+
+                        <Button
+                            android:id="@+id/whishlistButton"
+                            android:layout_width="wrap_content"
+                            android:layout_height="74dp"
+                            android:layout_weight="1"
+                            android:background="#ffffff"
+                            android:drawableTop="@drawable/ic_favorite_border_empty"
+                            android:paddingTop="10dp"
+                            android:text="@string/whishlist" />
+
+                        <Button
+                            android:id="@+id/shareButton"
+                            android:layout_width="wrap_content"
+                            android:layout_height="74dp"
+                            android:layout_weight="1"
+                            android:background="#ffffff"
+                            android:drawableTop="?attr/actionModeShareDrawable"
+                            android:paddingTop="10dp"
+                            android:text="@string/share" />
+
+                        <Button
+                            android:id="@+id/ratingButton"
+                            android:layout_width="wrap_content"
+                            android:layout_height="74dp"
+                            android:layout_weight="1"
+                            android:background="#ffffff"
+                            android:drawableTop="@drawable/ic_star_border_black_24dp"
+
+                            android:paddingTop="10dp"
+                            android:text="4.8" />
+
+                    </LinearLayout>
+                </LinearLayout>
+
+                <View
+                    android:id="@+id/view"
+                    android:layout_width="fill_parent"
+                    android:layout_height="1dp"
+                    android:background="?attr/colorControlHighlight" />
+
+                <TextView
+                    android:id="@+id/targetUserTextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.04"
+                    android:gravity="center"
+                    android:padding="30dp"
+                    android:text="Saya mencari seorang wanita yang serius ingin menjadi isteri saya dan mengikut saya ke London" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.04"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal"
+                        android:paddingLeft="8dp"
+                        android:paddingRight="8dp">
+
+                        <ImageView
+                            android:id="@+id/maritalStatusImageView"
+                            android:layout_width="15dp"
+                            android:layout_height="15dp"
+                            android:layout_gravity="center"
+                            android:layout_weight="0.05"
+                            app:srcCompat="@drawable/ic_favorite" />
+
+                        <TextView
+                            android:id="@+id/maritalStatusTextView"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_weight="1"
+                            android:text="Single"
+                            android:textSize="13sp" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="0.05"
+                        android:orientation="horizontal"
+                        android:paddingLeft="8dp"
+                        android:paddingRight="8dp">
+
+                        <ImageView
+                            android:id="@+id/worksImageView"
+                            android:layout_width="19dp"
+                            android:layout_height="15dp"
+                            android:layout_gravity="center"
+                            android:layout_weight="0.05"
+                            app:srcCompat="@drawable/ic_school" />
+
+                        <TextView
+                            android:id="@+id/worksTextView"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_weight="1"
+                            android:text="Full stack Developer @ OSEM"
+                            android:textSize="13sp" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="0.05"
+                        android:orientation="horizontal"
+                        android:paddingLeft="8dp"
+                        android:paddingRight="8dp">
+
+                        <ImageView
+                            android:id="@+id/schoolImageView"
+                            android:layout_width="19dp"
+                            android:layout_height="15dp"
+                            android:layout_gravity="center"
+                            android:layout_weight="0.05"
+                            app:srcCompat="@drawable/ic_school" />
+
+                        <TextView
+                            android:id="@+id/schoolTextView"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_weight="1"
+                            android:text="Graduated from USM"
+                            android:textSize="13sp" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal"
+                        android:paddingLeft="8dp"
+                        android:paddingRight="8dp">
+
+                        <ImageView
+                            android:id="@+id/locationImageView"
+                            android:layout_width="19dp"
+                            android:layout_height="15dp"
+                            android:layout_gravity="right"
+                            android:layout_weight="0.05"
+                            app:srcCompat="@drawable/ic_location" />
+
+                        <TextView
+                            android:id="@+id/locationTextView"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_weight="1"
+                            android:text="Lives in Shah Alam"
+                            android:textSize="13sp" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal"
+                        android:paddingLeft="8dp"
+                        android:paddingRight="8dp">
+
+                        <ImageView
+                            android:id="@+id/totalUniqueViewsImageView"
+                            android:layout_width="19dp"
+                            android:layout_height="15dp"
+                            android:layout_gravity="center"
+                            android:layout_weight="0.05"
+                            app:srcCompat="@drawable/ic_remove_red_eye" />
+
+                        <TextView
+                            android:id="@+id/totalUniqueViewsTextView"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_weight="1"
+                            android:text="300 peoples"
+                            android:textSize="13sp" />
+
+                    </LinearLayout>
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/pictureLabelTextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_weight="0.04"
+                    android:paddingLeft="15dp"
+                    android:text="@string/pictures"
+                    android:textSize="13sp" />
+
+                <LinearLayout
+                    android:id="@+id/fakeView"
+                    android:layout_width="match_parent"
+                    android:layout_height="150dp"
+                    android:layout_centerInParent="true"
+                    android:layout_marginBottom="50dp">
+
+                    <ImageView
+                        android:id="@+id/featuredImage1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+
+                        android:layout_alignRight="@id/fakeView"
+                        android:layout_weight="1"
+
+                        android:background="#FFFFFF"
+                        app:srcCompat="@drawable/sample1" />
+
+                    <ImageView
+                        android:id="@+id/featuredImage2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignLeft="@id/fakeView"
+
+                        android:layout_alignParentRight="true"
+                        android:layout_weight="1"
+                        android:background="#FFFFFF"
+                        app:srcCompat="@drawable/sample2" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+    </ScrollView>
+</RelativeLayout>
+

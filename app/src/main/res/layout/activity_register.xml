@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    tools:context="com.easytravelapp17.jodoh.RegisterActivity">
+
+    <EditText
+        android:id="@+id/fullnameEditText"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="11dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <TextView
+        android:id="@+id/fullnameTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/full_name"
+        android:layout_alignBaseline="@+id/fullnameEditText"
+        android:layout_alignBottom="@+id/fullnameEditText"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:id="@+id/loginIdTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/login_id"
+        android:layout_alignBaseline="@+id/loginIdRegisterEditText"
+        android:layout_alignBottom="@+id/loginIdRegisterEditText"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <EditText
+        android:id="@+id/loginIdRegisterEditText"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:layout_below="@+id/fullnameEditText"
+        android:layout_alignRight="@+id/fullnameEditText"
+        android:layout_alignEnd="@+id/fullnameEditText" />
+
+    <TextView
+        android:id="@+id/phoneNumberTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="22dp"
+        android:text="@string/mobile_number"
+        android:layout_below="@+id/loginIdRegisterEditText"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <EditText
+        android:id="@+id/mobileNumberEditText"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="0183954840"
+        android:inputType="textPersonName"
+        android:layout_alignBaseline="@+id/phoneNumberTextView"
+        android:layout_alignBottom="@+id/phoneNumberTextView"
+        android:layout_alignLeft="@+id/newPasswordEditText"
+        android:layout_alignStart="@+id/newPasswordEditText" />
+
+    <TextView
+        android:id="@+id/newPasswordTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/new_password"
+        android:layout_below="@+id/mobileNumberEditText"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="14dp" />
+
+    <EditText
+        android:id="@+id/newPasswordEditText"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPassword"
+        android:layout_below="@+id/mobileNumberEditText"
+        android:layout_alignRight="@+id/loginIdRegisterEditText"
+        android:layout_alignEnd="@+id/loginIdRegisterEditText" />
+
+    <TextView
+        android:id="@+id/confirmNewPasswordTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/newPasswordEditText"
+        android:layout_marginTop="18dp"
+        android:text="@string/confirm_password" />
+
+    <EditText
+        android:id="@+id/confirmPasswordEditText"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPassword"
+        android:layout_alignBaseline="@+id/confirmNewPasswordTextView"
+        android:layout_alignBottom="@+id/confirmNewPasswordTextView"
+        android:layout_alignRight="@+id/newPasswordEditText"
+        android:layout_alignEnd="@+id/newPasswordEditText" />
+
+    <Button
+        android:id="@+id/submitButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/termAndConditionCheckBox"
+        android:onClick="submitRegistrationForm"
+        android:text="@string/submit" />
+
+    <CheckBox
+        android:id="@+id/termAndConditionCheckBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/confirmPasswordEditText"
+        android:layout_marginTop="20dp"
+        android:text="@string/accept_term_and_conditions" />
+</RelativeLayout>
