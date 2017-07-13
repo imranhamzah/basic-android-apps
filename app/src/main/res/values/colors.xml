@@ -4,4 +4,8 @@
     <color name="colorPrimaryDark">#00802d</color>
     <color name="colorAccent">#8bb900</color>
     <string name="backgroundSplashScreen">#00802d</string>
+
+    <color name="ultra_dark">#29303F</color>
+    <color name="dark">#696E79</color>
+    <color name="ultra_dark_overlay">#0D29303F</color>
 </resources>

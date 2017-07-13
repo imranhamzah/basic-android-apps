@@ -284,13 +284,6 @@ public class ProfileActivity extends AppCompatActivity implements PicModeSelectD
     }
 
 
-    private void showAddProfilePicDialog() {
-        PicModeSelectDialogFragment dialogFragment = new PicModeSelectDialogFragment();
-        dialogFragment.setiPicModeSelectListener(this);
-        dialogFragment.show(getFragmentManager(), "picModeSelector");
-        checkPermissions();
-    }
-
 
     @SuppressLint("InlinedApi")
     private void checkPermissions() {
@@ -299,6 +292,27 @@ public class ProfileActivity extends AppCompatActivity implements PicModeSelectD
             ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, 1234);
         }
     }
+
+
+    private void showAddProfilePicDialog() {
+        PicModeSelectDialogFragment dialogFragment = new PicModeSelectDialogFragment();
+        dialogFragment.setiPicModeSelectListener(this);
+        dialogFragment.show(getFragmentManager(), "picModeSelector");
+    }
+
+    private void actionProfilePic(String action) {
+        Intent intent = new Intent(this, ImageCropActivity.class);
+        intent.putExtra("ACTION", action);
+        startActivityForResult(intent, REQUEST_CODE_UPDATE_PIC);
+    }
+
+
+    @Override
+    public void onPicModeSelected(String mode) {
+        String action = mode.equalsIgnoreCase(GOTOConstants.PicModes.CAMERA) ? GOTOConstants.IntentExtras.ACTION_CAMERA : GOTOConstants.IntentExtras.ACTION_GALLERY;
+        actionProfilePic(action);
+    }
+
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -422,11 +436,6 @@ public class ProfileActivity extends AppCompatActivity implements PicModeSelectD
     private void saveWhishListToLocalStorage(int src_usr_id, int tgt_usr_id, int sync_status) {
         Log.i("data_catched", String.valueOf(src_usr_id+"-"+tgt_usr_id+"-"+sync_status));
         dbHelperTableWhishList.manageAddToWhishList(src_usr_id,tgt_usr_id, sync_status);
-    }
-
-    @Override
-    public void onPicModeSelected(String mode) {
-
     }
 
     private class uploadImage extends AsyncTask<Void,Void,Void>

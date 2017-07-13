@@ -253,7 +253,7 @@ public class ImageCropActivity extends Activity {
 	        	 */
                 mImageCaptureUri = InternalStorageContentProvider.CONTENT_URI;
             }
-            takePictureIntent.putExtra(android.provider.MediaStore.EXTRA_OUTPUT, mImageCaptureUri);
+            takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, mImageCaptureUri);
             takePictureIntent.putExtra("return-data", true);
             startActivityForResult(takePictureIntent, REQUEST_CODE_TAKE_PICTURE);
         } catch (ActivityNotFoundException e) {
