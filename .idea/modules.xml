@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/Jodoh.iml" filepath="$PROJECT_DIR$/Jodoh.iml" />
+      <module fileurl="file://$PROJECT_DIR$/android-image-zoom-crop/android-image-zoom-crop.iml" filepath="$PROJECT_DIR$/android-image-zoom-crop/android-image-zoom-crop.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>
