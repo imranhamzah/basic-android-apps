@@ -206,6 +206,7 @@ public class ProfileActivity extends AppCompatActivity implements PicModeSelectD
             TextView ratingButton = (TextView) findViewById(R.id.ratingButton);
             ImageView featuredImage1 = (ImageView) findViewById(R.id.featuredImage1);
             ImageView featuredImage2 = (ImageView) findViewById(R.id.featuredImage2);
+            mImageView = (ImageView) findViewById(R.id.iv_user_pic);
 
 
             while (count < jsonArray.length()) {
@@ -231,6 +232,7 @@ public class ProfileActivity extends AppCompatActivity implements PicModeSelectD
                     Bitmap bmp = BitmapFactory.decodeStream(urlImage.openConnection().getInputStream());
                     Bitmap bmp1 = BitmapFactory.decodeStream(urlFeautredImage1.openConnection().getInputStream());
                     Bitmap bmp2 = BitmapFactory.decodeStream(urlFeautredImage2.openConnection().getInputStream());
+                    mImageView.setImageBitmap(bmp);
                     featuredImage1.setImageBitmap(bmp1);
                     featuredImage2.setImageBitmap(bmp2);
                     Log.i("bmp",bmp.toString());
