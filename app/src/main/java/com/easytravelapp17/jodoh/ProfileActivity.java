@@ -70,7 +70,6 @@ public class ProfileActivity extends AppCompatActivity implements PicModeSelectD
     DatabaseHelper db;
     DbHelperTableWhishList dbHelperTableWhishList;
     TextView fullnameTextView,ageTextView,genderTextView,stateTextView;
-    ImageView profileImageView;
 
     Button whishList;
 
@@ -123,16 +122,8 @@ public class ProfileActivity extends AppCompatActivity implements PicModeSelectD
         ageTextView = (TextView) findViewById(R.id.ageTextView);
         genderTextView = (TextView) findViewById(R.id.genderTextView);
         stateTextView = (TextView) findViewById(R.id.stateTextView);
-        profileImageView = (ImageView) findViewById(R.id.profileImage);
         whishList = (Button) findViewById(R.id.whishlistButton);
-
-        profileImageView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-                startActivityForResult(intent,CAMERA_REQUEST_CODE);
-            }
-        });
+        mImageView = (ImageView) findViewById(R.id.iv_user_pic);
 
         whishList.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -213,7 +204,6 @@ public class ProfileActivity extends AppCompatActivity implements PicModeSelectD
             TextView locationTextView = (TextView) findViewById(R.id.locationTextView);
             TextView totalUniqueViewsTextView = (TextView) findViewById(R.id.totalUniqueViewsTextView);
             TextView ratingButton = (TextView) findViewById(R.id.ratingButton);
-            ImageView img = (ImageView) findViewById(R.id.profileImage);
             ImageView featuredImage1 = (ImageView) findViewById(R.id.featuredImage1);
             ImageView featuredImage2 = (ImageView) findViewById(R.id.featuredImage2);
 
@@ -241,7 +231,6 @@ public class ProfileActivity extends AppCompatActivity implements PicModeSelectD
                     Bitmap bmp = BitmapFactory.decodeStream(urlImage.openConnection().getInputStream());
                     Bitmap bmp1 = BitmapFactory.decodeStream(urlFeautredImage1.openConnection().getInputStream());
                     Bitmap bmp2 = BitmapFactory.decodeStream(urlFeautredImage2.openConnection().getInputStream());
-                    img.setImageBitmap(bmp);
                     featuredImage1.setImageBitmap(bmp1);
                     featuredImage2.setImageBitmap(bmp2);
                     Log.i("bmp",bmp.toString());
@@ -317,42 +306,18 @@ public class ProfileActivity extends AppCompatActivity implements PicModeSelectD
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if(requestCode == CAMERA_REQUEST_CODE && resultCode == RESULT_OK)
-        {
-            Bundle extras = data.getExtras();
-            Bitmap photo = (Bitmap) extras.get("data");
-            profileImageView.setImageBitmap(photo);
 
-            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-            photo.compress(Bitmap.CompressFormat.PNG, 100, byteArrayOutputStream);
-            byte[] byteArray = byteArrayOutputStream .toByteArray();
-
-            String encoded = Base64.encodeToString(byteArray, Base64.DEFAULT);
-
-            //Save the images to the device
-//            MediaStore.Images.Media.insertImage(getContentResolver(),photo,"Title","Description");
-
-
-
-            new uploadImage(encoded,"ce_try").execute();
-
-
-
-            //Save image to the server
+        if (requestCode == REQUEST_CODE_UPDATE_PIC) {
+            if (resultCode == RESULT_OK) {
+                String imagePath = data.getStringExtra(GOTOConstants.IntentExtras.IMAGE_PATH);
+                showCroppedImage(imagePath);
+            } else if (resultCode == RESULT_CANCELED) {
+                //TODO : Handle case
+            } else {
+                String errorMsg = data.getStringExtra(ImageCropActivity.ERROR_MSG);
+                Toast.makeText(this, errorMsg, Toast.LENGTH_LONG).show();
+            }
         }
-
-
-//        if (requestCode == REQUEST_CODE_UPDATE_PIC) {
-//            if (resultCode == RESULT_OK) {
-//                String imagePath = data.getStringExtra(GOTOConstants.IntentExtras.IMAGE_PATH);
-//                showCroppedImage(imagePath);
-//            } else if (resultCode == RESULT_CANCELED) {
-//                //TODO : Handle case
-//            } else {
-//                String errorMsg = data.getStringExtra(ImageCropActivity.ERROR_MSG);
-//                Toast.makeText(this, errorMsg, Toast.LENGTH_LONG).show();
-//            }
-//        }
     }
 
     private void showCroppedImage(String mImagePath) {
